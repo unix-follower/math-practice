@@ -1,0 +1,52 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - closed
+  workflow_dispatch:
+    inputs:
+      python-version:
+        description: Desired python version
+        required: false
+        default: 3.12
+
+env:
+  PYTHON_VERSION: ${{ inputs.python-version || '3.12' }}
+
+jobs:
+  build:
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup
+        uses: ./.github/actions/setup
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install packages
+        shell: bash
+        working-directory: example
+        run: make install
+
+      - name: Run unit tests with coverage
+        shell: bash
+        working-directory: example
+        run: |
+          make coverage
+          echo "EXAMPLE_TEST_COVERAGE_REPORT_PATH=$(pwd)/htmlcov" >> $GITHUB_ENV
+
+      - name: Publish test coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test coverage report
+          path: ${{ env.EXAMPLE_TEST_COVERAGE_REPORT_PATH }}
