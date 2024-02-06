@@ -18,5 +18,5 @@ class FunctionDefinitionPerformanceTest(unittest.TestCase):
         self.assertTrue(result < 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

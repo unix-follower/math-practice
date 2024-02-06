@@ -28,8 +28,11 @@ class DerivativeTest(unittest.TestCase):
 
         y = np.power(x_axis, 2)
         plt.plot(x_axis, y, label="f(x)", markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {0}\nf'(x) = {1}".format(f_result, f1_result),
-                     xy=(x, f_result), xytext=(x + 0.1, f_result))
+        plt.annotate(
+            "f(x) = {0}\nf'(x) = {1}".format(f_result, f1_result),
+            xy=(x, f_result),
+            xytext=(x + 0.1, f_result),
+        )
 
         y1 = x * x_axis
         plt.plot(x_axis, y1, label="f'(x)", markevery=markers, marker="o", markerfacecolor="black")
@@ -77,7 +80,7 @@ class DerivativeTest(unittest.TestCase):
         self.assertEqual(-0.037, round(f1_result, 3))
 
         # y = 3√5 = 3 * 5^½ = 3 * 5^0.5
-        result = derivative.ax_in_power_n(a=3, n=.5, x=5)
+        result = derivative.ax_in_power_n(a=3, n=0.5, x=5)
         logger.info(result)
         f_result, dx, f1_result = result
         self.assertEqual("a*n*x**n/x", str(dx))
@@ -96,11 +99,19 @@ class DerivativeTest(unittest.TestCase):
 
         y = a * np.power(x_axis, n)
         plt.plot(x_axis, y, label="f(x)", markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result - .1), xytext=(x + 0.2, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)),
+            xy=(x, f_result - 0.1),
+            xytext=(x + 0.2, f_result),
+        )
 
         y1 = (a * n * np.power(x_axis, n)) / x_axis
         plt.plot(x_axis, y1, label="f'(x)", markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result - .1), xytext=(x + 0.2, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)),
+            xy=(x, f1_result - 0.1),
+            xytext=(x + 0.2, f1_result),
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -136,11 +147,19 @@ class DerivativeTest(unittest.TestCase):
 
         y = np.sin(x_axis)
         plt.plot(x_axis, y, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result - .1), xytext=(x + 0.2, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)),
+            xy=(x, f_result - 0.1),
+            xytext=(x + 0.2, f_result),
+        )
 
         y1 = np.cos(x_axis)
         plt.plot(x_axis, y1, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result - .1), xytext=(x + 0.2, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)),
+            xy=(x, f1_result - 0.1),
+            xytext=(x + 0.2, f1_result),
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -165,14 +184,22 @@ class DerivativeTest(unittest.TestCase):
         y = np.sin(x_axis)
         plt.subplot(211)
         plt.plot(x_axis, y, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result - .1), xytext=(x + 0.2, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)),
+            xy=(x, f_result - 0.1),
+            xytext=(x + 0.2, f_result),
+        )
         plt.title("y = sin(x)")
         plt.grid(True)
 
         y1 = np.cos(x_axis)
         plt.subplot(212)
         plt.plot(x_axis, y1, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result - .1), xytext=(x + 0.2, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)),
+            xy=(x, f1_result - 0.1),
+            xytext=(x + 0.2, f1_result),
+        )
         plt.title("d/dx = sin(x) = cos(x)")
         plt.grid(True)
         plt.show()
@@ -196,11 +223,15 @@ class DerivativeTest(unittest.TestCase):
 
         y = np.cos(x_axis)
         plt.plot(x_axis, y, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result)
+        )
 
         y1 = -np.sin(x_axis)
         plt.plot(x_axis, y1, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.2, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.2, f1_result)
+        )
 
         plt.ylabel("y")
         plt.xlabel("from 0 to 2π")
@@ -238,11 +269,15 @@ class DerivativeTest(unittest.TestCase):
 
         y_cos = a * np.sin(b * x_axis) - c * np.cos(d * x_axis)
         plt.plot(x_axis, y_cos, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result)
+        )
 
         y_sin = a * b * np.cos(b * x_axis) + c * d * np.sin(d * x_axis)
         plt.plot(x_axis, y_sin, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result)
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -281,11 +316,15 @@ class DerivativeTest(unittest.TestCase):
 
         y_cos = a * np.sin(b * np.pi * x_axis - c)
         plt.plot(x_axis, y_cos, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result)
+        )
 
         y_sin = np.pi * a * b * np.cos(np.pi * b * x_axis - c)
         plt.plot(x_axis, y_sin, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result)
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -328,9 +367,11 @@ class DerivativeTest(unittest.TestCase):
 
         y = np.exp(x_axis)
         ax.plot(x_axis, y, label="f(x)", markevery=markers, marker="o", markerfacecolor="black")
-        ax.annotate("f(x) = {0}\nf'(x) = {0}".format(round(f_result, 3)),
-                    xy=(x, f_result), xytext=(x + 0.2, f_result + 1.5)
-                    )
+        ax.annotate(
+            "f(x) = {0}\nf'(x) = {0}".format(round(f_result, 3)),
+            xy=(x, f_result),
+            xytext=(x + 0.2, f_result + 1.5),
+        )
 
         y1 = np.exp(x_axis)
         ax.plot(x_axis, y1, label="f'(x)", markevery=markers, marker="o", markerfacecolor="black")
@@ -377,11 +418,17 @@ class DerivativeTest(unittest.TestCase):
 
         y = np.log(x_axis)
         plt.plot(x_axis, y, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.1, f_result + 0.4))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)),
+            xy=(x, f_result),
+            xytext=(x + 0.1, f_result + 0.4),
+        )
 
         y1 = 1 / x_axis
         plt.plot(x_axis, y1, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result)
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -418,11 +465,15 @@ class DerivativeTest(unittest.TestCase):
 
         y = np.log(a * x_axis)
         plt.plot(x_axis, y, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.2, f_result)
+        )
 
         y1 = 1 / x_axis
         plt.plot(x_axis, y1, markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result)
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -460,11 +511,15 @@ class DerivativeTest(unittest.TestCase):
 
         y = a * np.log(b * x_axis)
         plt.plot(x_axis, y, label="f(x)", markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.1, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.1, f_result)
+        )
 
         y1 = a / x_axis
         plt.plot(x_axis, y1, label="f'(x)", markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result)
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -517,7 +572,9 @@ class DerivativeTest(unittest.TestCase):
         plt.title(title)
         plt.legend()
         plt.grid(True)
-        plt.figtext(.05, .0, "f(x) = {0} f'(x) = {0}".format(round(f_result, 3), round(f1_result, 3)))
+        plt.figtext(
+            0.05, 0.0, "f(x) = {0} f'(x) = {0}".format(round(f_result, 3), round(f1_result, 3))
+        )
         plt.xlim(-1, x * 1.5)
         plt.ylim(-1, f_result * 1.5)
         plt.show()
@@ -641,11 +698,15 @@ class DerivativeTest(unittest.TestCase):
 
         y = a * np.sin(b * x_axis)
         plt.plot(x_axis, y, label="f(x)", markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.1, f_result))
+        plt.annotate(
+            "f(x) = {}".format(round(f_result, 3)), xy=(x, f_result), xytext=(x + 0.1, f_result)
+        )
 
         y1 = a * b * np.cos(b * x_axis)
         plt.plot(x_axis, y1, label="f'(x)", markevery=markers, marker="o", markerfacecolor="black")
-        plt.annotate("f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result))
+        plt.annotate(
+            "f'(x) = {}".format(round(f1_result, 3)), xy=(x, f1_result), xytext=(x + 0.1, f1_result)
+        )
 
         plt.ylabel("y")
         plt.xlabel("x")
@@ -663,5 +724,5 @@ class DerivativeTest(unittest.TestCase):
         plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

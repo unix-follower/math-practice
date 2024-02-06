@@ -20,10 +20,12 @@ def test_example1_3():
     """
 
     # given
-    coefficient_matrix = np.array([
-        [3, 2],
-        [-1, 1],
-    ])
+    coefficient_matrix = np.array(
+        [
+            [3, 2],
+            [-1, 1],
+        ]
+    )
 
     constant_vector = np.array([7, 6])
 
@@ -45,11 +47,7 @@ def test_example1_4_with_custom_gauss_method():
     """
 
     # given
-    coefficient_matrix = np.array([
-        [0, 0, 3],
-        [1, 5, -2],
-        [1 / 3, 2, 0]
-    ])
+    coefficient_matrix = np.array([[0, 0, 3], [1, 5, -2], [1 / 3, 2, 0]])
 
     constant_vector = np.array([9, 2, 3])
 
@@ -72,11 +70,7 @@ def test_example1_4():
     """
 
     # given
-    coefficient_matrix = np.array([
-        [0, 0, 3],
-        [1, 5, -2],
-        [1 / 3, 2, 0]
-    ])
+    coefficient_matrix = np.array([[0, 0, 3], [1, 5, -2], [1 / 3, 2, 0]])
 
     constant_vector = np.array([9, 2, 3])
 
@@ -98,11 +92,7 @@ def test_example1_7():
     """
 
     # given
-    coefficient_matrix = np.array([
-        [1, 1, 0],
-        [2, -1, 3],
-        [1, -2, -1]
-    ])
+    coefficient_matrix = np.array([[1, 1, 0], [2, -1, 3], [1, -2, -1]])
 
     constant_vector = np.array([0, 3, 3])
 
@@ -124,10 +114,12 @@ def test_example1_8():
     """
 
     # given
-    coefficient_matrix = np.array([
-        [40, 15],
-        [-50, 25],
-    ])
+    coefficient_matrix = np.array(
+        [
+            [40, 15],
+            [-50, 25],
+        ]
+    )
 
     constant_vector = np.array([100, 50])
 

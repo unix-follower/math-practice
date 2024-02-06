@@ -19,7 +19,7 @@ def x_square(x):
     :return: Tuple of f(x), derivative, f'(x)
     """
     _x = Symbol("x")
-    expr = _x ** 2
+    expr = _x**2
     derivative = expr.diff(_x)
     f1 = lambdify(_x, derivative)
     result = f1(x)
@@ -52,7 +52,7 @@ def ax_in_power_n(a, n, x):
     :return: Tuple of f(x), derivative, f'(x)
     """
     _a, _n, _x = symbols("a n x")
-    expr = _a * _x ** _n
+    expr = _a * _x**_n
     derivative = expr.diff(_x)
     f1 = lambdify((_a, _n, _x), derivative)
     result = f1(a, n, x)
@@ -75,7 +75,7 @@ def ax_in_power_n(a, n, x):
                 y_result=y_result,
                 power=n - 1,
                 derivative=derivative,
-                result=result
+                result=result,
             )
         )
         logger.info(msg)
@@ -108,10 +108,7 @@ def sinusoid(x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr,
-                y_result=y_result,
-                derivative=derivative,
-                result=result
+                f=expr, y_result=y_result, derivative=derivative, result=result
             )
         )
         logger.info(msg)
@@ -144,10 +141,7 @@ def enhanced_sin_bx(a, b, x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr,
-                y_result=y_result,
-                derivative=derivative,
-                result=result
+                f=expr, y_result=y_result, derivative=derivative, result=result
             )
         )
         logger.info(msg)
@@ -180,10 +174,7 @@ def cosinusoid(x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr,
-                y_result=y_result,
-                derivative=derivative,
-                result=result
+                f=expr, y_result=y_result, derivative=derivative, result=result
             )
         )
         logger.info(msg)
@@ -216,10 +207,15 @@ def enhanced_sin_bx_minus_enhanced_cos_dx(a, b, c, d, x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr, a=a, b=b, c=c, d=d, x=x,
+                f=expr,
+                a=a,
+                b=b,
+                c=c,
+                d=d,
+                x=x,
                 y_result=y_result,
                 derivative=derivative,
-                result=result
+                result=result,
             )
         )
         logger.info(msg)
@@ -252,10 +248,15 @@ def enhanced_sin_b_pi_x_minus_c(a, b, c, x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr, a=a, b=b, c=c, x=x, pi=math.pi,
+                f=expr,
+                a=a,
+                b=b,
+                c=c,
+                x=x,
+                pi=math.pi,
                 y_result=y_result,
                 derivative=derivative,
-                result=result
+                result=result,
             )
         )
         logger.info(msg)
@@ -272,7 +273,7 @@ def e_in_power(x):
     :return: Tuple of f(x), derivative, f'(x)
     """
     e, _x = symbols("e x")
-    expr = e ** _x
+    expr = e**_x
     derivative = expr.diff(_x)
     f1 = lambdify((e, _x), derivative)
     result = f1(math.e, x)
@@ -288,10 +289,7 @@ def e_in_power(x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr, e=math.e, x=x,
-                y_result=y_result,
-                derivative=derivative,
-                result=result
+                f=expr, e=math.e, x=x, y_result=y_result, derivative=derivative, result=result
             )
         )
         logger.info(msg)
@@ -324,10 +322,7 @@ def ln(x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr,
-                y_result=y_result,
-                derivative=derivative,
-                result=result
+                f=expr, y_result=y_result, derivative=derivative, result=result
             )
         )
         logger.info(msg)
@@ -365,7 +360,7 @@ def ln_ax(a, x):
                 ax_multiply_result=ax_multiply_result,
                 y_result=y_result,
                 derivative=derivative,
-                result=result
+                result=result,
             )
         )
         logger.info(msg)
@@ -399,11 +394,12 @@ def enhanced_ln_ax(a, b, x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr, a=a,
+                f=expr,
+                a=a,
                 bx_multiply_result=bx_multiply_result,
                 y_result=y_result,
                 derivative=derivative,
-                result=result
+                result=result,
             )
         )
         logger.info(msg)
@@ -437,11 +433,12 @@ def enhanced_e_in_power_ax(a, b, x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr, a=a,
+                f=expr,
+                a=a,
                 bx_multiply_result=bx_multiply_result,
                 y_result=y_result,
                 derivative=derivative,
-                result=result
+                result=result,
             )
         )
         logger.info(msg)
@@ -458,7 +455,7 @@ def of_constant(a, x):
     :return: Tuple of f(x), derivative, f'(x)
     """
     _a, _x = symbols("a x")
-    expr = _a * _x ** 0
+    expr = _a * _x**0
     derivative = expr.diff(_x)
     f1 = lambdify((_a, _x), derivative)
     result = f1(a, x)
@@ -476,11 +473,7 @@ def of_constant(a, x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                a=a,
-                powered_x=powered_x,
-                y_result=y_result,
-                derivative=derivative,
-                result=result
+                a=a, powered_x=powered_x, y_result=y_result, derivative=derivative, result=result
             )
         )
         logger.info(msg)
@@ -514,10 +507,7 @@ def ax(a, x):
             f(x) = {y_result}
             f'(x) = {result}
             """.format(
-                f=expr, a=a,
-                y_result=y_result,
-                derivative=derivative,
-                result=result
+                f=expr, a=a, y_result=y_result, derivative=derivative, result=result
             )
         )
         logger.info(msg)

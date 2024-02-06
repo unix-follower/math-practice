@@ -11,6 +11,7 @@ def slope_angle(x1, x2):
          AC     ED        (x₂ - x₁)
     :return: (f(x₂) - f(x₁)) / (x₂ - x₁)
     """
+
     def f(x):
         return pow(x, 2)
 
@@ -30,7 +31,9 @@ def slope_angle(x1, x2):
 
         line1 = "-" * numerator_length
 
-        numerator_squares_str = "{x2_square} - {x1_square}".format(x2_square=x2_square, x1_square=x1_square)
+        numerator_squares_str = "{x2_square} - {x1_square}".format(
+            x2_square=x2_square, x1_square=x1_square
+        )
         numerator_squares_str_length = len(numerator_squares_str)
         denominator_subtraction_result_str = str(denominator_subtraction_result)
         denominator_subtraction_result_str_length = len(denominator_subtraction_result_str)
@@ -39,22 +42,33 @@ def slope_angle(x1, x2):
         else:
             line2 = "-" * denominator_subtraction_result_str_length
         denominator_subtraction_position = (numerator_length + numerator_squares_str_length) - (
-            numerator_squares_str_length // 2)
+            numerator_squares_str_length // 2
+        )
         denominator_str_length = len(denominator_str)
         denominator_subtraction_leading_whitespaces = " " * (
-            denominator_subtraction_position - denominator_str_length - 1)
+            denominator_subtraction_position - denominator_str_length - 1
+        )
 
-        denominator_subtraction_str = denominator_subtraction_leading_whitespaces + denominator_subtraction_result_str
+        denominator_subtraction_str = (
+            denominator_subtraction_leading_whitespaces + denominator_subtraction_result_str
+        )
         if (len(line2) - len(denominator_subtraction_str)) < 0:
             if denominator_subtraction_result_str_length <= 2:
-                denominator_subtraction_leading_whitespaces = " " * (numerator_length - denominator_str_length + 2)
+                denominator_subtraction_leading_whitespaces = " " * (
+                    numerator_length - denominator_str_length + 2
+                )
             elif denominator_subtraction_result_str_length == 3:
-                denominator_subtraction_leading_whitespaces = " " * (numerator_length - denominator_str_length + 3)
+                denominator_subtraction_leading_whitespaces = " " * (
+                    numerator_length - denominator_str_length + 3
+                )
             else:
-                denominator_subtraction_leading_whitespaces = " " * (numerator_length - denominator_str_length)
+                denominator_subtraction_leading_whitespaces = " " * (
+                    numerator_length - denominator_str_length
+                )
 
-            denominator_subtraction_str = \
+            denominator_subtraction_str = (
                 denominator_subtraction_leading_whitespaces + denominator_subtraction_result_str
+            )
 
         msg = textwrap.dedent(
             """
@@ -68,7 +82,7 @@ def slope_angle(x1, x2):
                 numerator_squares=numerator_squares_str,
                 line2=line2,
                 denominator_subtraction=denominator_subtraction_str,
-                result=result
+                result=result,
             )
         )
         logger.info(msg)

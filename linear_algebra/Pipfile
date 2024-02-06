@@ -11,6 +11,7 @@ pytest = "*"
 coverage = "*"
 pytest = "*"
 pylint = "*"
+black = "*"
 
 [requires]
 python_version = "3.12"
@@ -20,3 +21,4 @@ lint = "pylint --rcfile ../pylintrc ."
 test = "pytest --config-file ../pytest.ini"
 coverage = "coverage run --include=src/* -m pytest"
 coverage-html = "coverage html"
+format = "black --config pyproject.toml ."

@@ -39,15 +39,19 @@ class ChordTest(unittest.TestCase):
         d_square = pow(d, 2)
         plt.plot([a, d, c, b], [a_square, d_square, c_square, b_square], "-o")
         plt.axis([0, b + 1, 0, b_square + 1])
-        plt.annotate("A", xy=(a, a_square), xytext=(a, a_square + .2))
-        plt.annotate("B", xy=(b, b_square), xytext=(b, b_square + .2))
-        plt.annotate("f(x) = x²", xy=(b + .01, b_square), xytext=(b + .3, b_square),
-                     arrowprops=dict(facecolor='black', shrink=0.02, width=1, headwidth=6))
-        plt.annotate("C", xy=(c, c_square), xytext=(c, c_square + .2))
-        plt.annotate("D", xy=(d, d_square), xytext=(d, d_square + .2))
+        plt.annotate("A", xy=(a, a_square), xytext=(a, a_square + 0.2))
+        plt.annotate("B", xy=(b, b_square), xytext=(b, b_square + 0.2))
+        plt.annotate(
+            "f(x) = x²",
+            xy=(b + 0.01, b_square),
+            xytext=(b + 0.3, b_square),
+            arrowprops=dict(facecolor="black", shrink=0.02, width=1, headwidth=6),
+        )
+        plt.annotate("C", xy=(c, c_square), xytext=(c, c_square + 0.2))
+        plt.annotate("D", xy=(d, d_square), xytext=(d, d_square + 0.2))
         plt.grid(True)
         plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

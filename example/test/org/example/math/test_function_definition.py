@@ -15,5 +15,5 @@ class FunctionDefinitionTest(unittest.TestCase):
         self.assertEqual(-4, f_def.f_definition(-1))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
