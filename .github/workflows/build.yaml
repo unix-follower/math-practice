@@ -5,8 +5,12 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
       - reopened
+      - synchronize
+  pull_request_target:
+    branches:
+      - main
+    types:
       - closed
   workflow_dispatch:
     inputs:
@@ -19,12 +23,12 @@ env:
   PYTHON_VERSION: ${{ inputs.python-version || '3.12' }}
 
 jobs:
-  build:
+  setup:
     runs-on:
       - ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
 
@@ -33,20 +37,22 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Install packages
-        shell: bash
-        working-directory: example
-        run: make install
-
-      - name: Run unit tests with coverage
-        shell: bash
-        working-directory: example
-        run: |
-          make coverage
-          echo "EXAMPLE_TEST_COVERAGE_REPORT_PATH=$(pwd)/htmlcov" >> $GITHUB_ENV
-
-      - name: Publish test coverage report
-        uses: actions/upload-artifact@v4
+  build-example:
+    runs-on:
+      - ubuntu-latest
+    needs: [setup]
+    steps:
+      - name: Build example
+        uses: ./.github/actions/build
         with:
-          name: Test coverage report
-          path: ${{ env.EXAMPLE_TEST_COVERAGE_REPORT_PATH }}
+          working-directory: example
+
+  build-linear-algebra:
+    runs-on:
+      - ubuntu-latest
+    needs: [setup]
+    steps:
+      - name: Build example
+        uses: ./.github/actions/build
+        with:
+          working-directory: linear_algebra

@@ -3,8 +3,12 @@
 freeze-deps:
 	pipenv run pip freeze > requirements.txt
 
+setup:
+	python -m pip install --upgrade pip
+	pip install pipenv
+
 install:
-	pip install -r requirements.txt
+	pipenv install
 
 test-all: test performance-test
 
