@@ -1,14 +1,17 @@
 name: Build project
-description: Install python
+description: Install packages, run checks
 
 inputs:
   working-directory:
     description: Project directory
     required: true
-  pylintrc-path:
-    description: Path to Pylint rcfile
-    required: true
-    default: ../pylintrc
+  artifact-name:
+    description: The name of the artifact to publish
+    required: false
+  is-continue-on-lint-error:
+    description: If true then build will continue despite of presence of linting error
+    required: false
+    default: "true"
 
 runs:
   using: composite
@@ -16,22 +19,24 @@ runs:
     - name: Install packages
       shell: bash
       working-directory: ${{ inputs.working-directory }}
-      run: pipenv sync
+      run: pipenv sync --dev
 
     - name: Run lint
       shell: bash
       working-directory: ${{ inputs.working-directory }}
-      run: pylint --rcfile ${{ inputs.pylintrc-path }} .
+      continue-on-error: ${{ fromJSON(inputs.is-continue-on-lint-error) }}
+      run: pipenv run lint
 
     - name: Run unit tests with coverage
       shell: bash
       working-directory: ${{ inputs.working-directory }}
       run: |
-        make coverage
+        pipenv run coverage
+        pipenv run coverage-html
         echo "EXAMPLE_TEST_COVERAGE_REPORT_PATH=$(pwd)/htmlcov" >> $GITHUB_ENV
 
     - name: Publish test coverage report
       uses: actions/upload-artifact@v4
       with:
-        name: Test coverage report
+        name: ${{ inputs.artifact-name }}
         path: ${{ env.EXAMPLE_TEST_COVERAGE_REPORT_PATH }}
