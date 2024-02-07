@@ -3,9 +3,8 @@ import math
 import textwrap
 
 import sympy as sp
-from sympy import symbols, Symbol, lambdify, init_printing
-
 from org.example.math.config.logging_config import logger
+from sympy import Symbol, init_printing, lambdify, symbols
 
 init_printing(use_latex=True)
 

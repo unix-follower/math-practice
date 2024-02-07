@@ -3,7 +3,6 @@ import unittest
 
 import matplotlib.pyplot as plt
 import numpy as np
-
 import org.example.math.derivative as derivative
 from org.example.math.config.logging_config import logger
 

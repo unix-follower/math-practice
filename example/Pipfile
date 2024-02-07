@@ -7,6 +7,7 @@ name = "pypi"
 matplotlib = "*"
 numpy = "*"
 sympy = "*"
+isort = "*"
 
 [dev-packages]
 coverage = "*"
@@ -23,3 +24,4 @@ performance-test = "python3 -m unittest discover -v --locals -p 'perf_test_*.py'
 coverage = "coverage run --source=src -m unittest -v --locals"
 coverage-html = "coverage html"
 format = "black --config pyproject.toml ."
+sort_imports = "isort ."

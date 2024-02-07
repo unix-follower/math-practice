@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 numpy = "*"
 pytest = "*"
+isort = "*"
 
 [dev-packages]
 coverage = "*"
@@ -22,3 +23,4 @@ test = "pytest --config-file ../pytest.ini"
 coverage = "coverage run --include=src/* -m pytest"
 coverage-html = "coverage html"
 format = "black --config pyproject.toml ."
+sort_imports = "isort ."
