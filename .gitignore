@@ -3,6 +3,7 @@ HELP.md
 build
 target
 .bsp
+CMakeUserPresets.json
 
 ### IntelliJ IDEA ###
 .idea
