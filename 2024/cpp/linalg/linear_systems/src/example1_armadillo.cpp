@@ -2,8 +2,9 @@
 #include <iostream>
 #include <cassert>
 
-int main() {
-    arma::mat coefficient_matrix = { {3, 2}, {-1, 1} };
+int main()
+{
+    arma::mat coefficient_matrix = {{3, 2}, {-1, 1}};
     arma::vec constant_vector = {7, 6};
 
     arma::vec result_vector = arma::solve(coefficient_matrix, constant_vector);

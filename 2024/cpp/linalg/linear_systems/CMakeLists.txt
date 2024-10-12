@@ -15,3 +15,11 @@ target_link_libraries(example1_boost boost::boost)
 add_executable(example1_armadillo src/example1_armadillo.cpp)
 set_target_properties(example1_armadillo PROPERTIES OUTPUT_NAME "example1_armadillo")
 target_link_libraries(example1_armadillo ${ARMADILLO_LIBRARIES})
+
+add_executable(example2_boost src/example2_boost.cpp)
+set_target_properties(example2_boost PROPERTIES OUTPUT_NAME "example2_boost")
+target_link_libraries(example2_boost boost::boost)
+
+add_executable(example2_armadillo src/example2_armadillo.cpp)
+set_target_properties(example2_armadillo PROPERTIES OUTPUT_NAME "example2_armadillo")
+target_link_libraries(example2_armadillo ${ARMADILLO_LIBRARIES})
