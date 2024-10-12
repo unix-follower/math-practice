@@ -18,7 +18,7 @@ black = "*"
 python_version = "3.12"
 
 [scripts]
-lint = "pylint --rcfile ../pylintrc ."
+lint = "pylint --rcfile ../../../pylintrc ."
 test = "pytest --config-file ../pytest.ini"
 coverage = "coverage run --include=src/* -m pytest"
 coverage-html = "coverage html"
