@@ -1,4 +1,4 @@
-package org.example.math
+package org.example0.math
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
@@ -8,7 +8,7 @@ class FunctionDefinitionTest {
     private val logger = LoggerFactory.getLogger(getClass)
 
     @Test
-    def test_numbers() = {
+    def test_numbers(): Any = {
         var x = 0
         val f0 = example0(x)
         logger.info("f({}) = {}", x, f0.toInt)
