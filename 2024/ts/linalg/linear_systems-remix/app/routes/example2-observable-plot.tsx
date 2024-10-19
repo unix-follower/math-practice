@@ -1,7 +1,7 @@
 import React from "react"
 import * as Plot from "@observablehq/plot"
 
-export default function PlotComponent() {
+export default function Exaample2ObservablePlot() {
   const divRef = React.useRef<HTMLDivElement>(null)
 
   const data = React.useMemo(
