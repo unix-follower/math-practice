@@ -29,3 +29,8 @@ out/
 !**/gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+### JS ###
+node_modules
+.cache
+**/ts/**/.env
