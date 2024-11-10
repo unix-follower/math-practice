@@ -17,7 +17,7 @@ on:
       python-version:
         description: Desired python version
         required: false
-        default: 3.12
+        default: "3.12"
     is-continue-on-lint-error:
       description: If true then build will continue despite of presence of linting error
       required: false
@@ -28,7 +28,7 @@ env:
   IS_CONTINUE_ON_LINT_ERROR: ${{ inputs.is-continue-on-lint-error || 'true' }}
 
 jobs:
-  build-2024_python_example0:
+  build-python_example0:
     runs-on:
       - ubuntu-latest
     steps:
@@ -42,14 +42,14 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Build 2024_python_example0
+      - name: Build python_example0
         uses: ./.github/actions/build
         with:
-          working-directory: 2024/python/example0
-          artifact-name: 2024_python_example0
+          working-directory: python/example0
+          artifact-name: python_example0
           is-continue-on-lint-error: ${{ env.IS_CONTINUE_ON_LINT_ERROR }}
 
-  build-2024_python_linear_algebra:
+  build-python_linear_algebra:
     runs-on:
       - ubuntu-latest
     steps:
@@ -66,6 +66,6 @@ jobs:
       - name: Build linear algebra
         uses: ./.github/actions/build
         with:
-          working-directory: 2024/python/linear_algebra
-          artifact-name: 2024_python_linear_algebra
+          working-directory: python/linear_algebra
+          artifact-name: python_linear_algebra
           is-continue-on-lint-error: ${{ env.IS_CONTINUE_ON_LINT_ERROR }}
