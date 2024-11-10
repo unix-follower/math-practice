@@ -51,7 +51,7 @@ function LinePlot() {
 
   return (
     <svg width={width} height={height}>
-      <path fill="none" stroke="currentColor" strokeWidth="1.5" d={line(data) || undefined} />
+      <path fill="none" stroke="currentColor" strokeWidth="1.5" d={line(data) ?? undefined} />
       <g fill="white" stroke="currentColor" strokeWidth="1.5">
         {data.map((dataPoint, i) => (
           <circle key={i} cx={xScale(dataPoint[X_INDEX])} cy={yScale(dataPoint[Y_INDEX])} r="2.5" />
@@ -141,7 +141,7 @@ function ScatterPlot() {
   return <svg ref={svgRef}></svg>
 }
 
-export default function Example2() {
+export default function Example2D3() {
   return (
     <>
       <LinePlot />
