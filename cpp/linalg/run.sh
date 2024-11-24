@@ -12,9 +12,9 @@ run() {
 }
 
 run_all() {
-  build/build/Release/example_1_3
-  build/build/Release/example_1_4
-  build/build/Release/example_1_7
+  build/build/Release/example1
+  build/build/Release/example2
+  build/build/Release/example3
 }
 
 run_all

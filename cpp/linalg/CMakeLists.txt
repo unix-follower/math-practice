@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.31.0)
 project(linear_systems VERSION 1.0.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -18,6 +18,6 @@ function(add_example example_name)
     target_include_directories(${example_target} PRIVATE ${ARMADILLO_INCLUDE_DIRS})
 endfunction()
 
-add_example(example_1_3)
-add_example(example_1_4)
-add_example(example_1_7)
+add_example(example1)
+add_example(example2)
+add_example(example3)

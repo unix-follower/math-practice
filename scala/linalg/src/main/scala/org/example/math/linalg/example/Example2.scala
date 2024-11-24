@@ -4,7 +4,7 @@ import org.apache.commons.math3.linear.{Array2DRowRealMatrix, ArrayRealVector, L
 import org.example.math.linalg.ArrayConstants
 import org.slf4j.LoggerFactory
 
-object Example_1_4 {
+object Example2 {
     private val logger = LoggerFactory.getLogger("Linear Algebra")
 
     def executeWithCommonsMathLUDecomposition(): Unit = {

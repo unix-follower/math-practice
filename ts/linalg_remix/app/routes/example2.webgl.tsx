@@ -59,7 +59,7 @@ function createProgram(gl: WebGLRenderingContext, vertexShaderSource: string, fr
   return program
 }
 
-export default function WebGLPlotComponent() {
+export default function Example2WebGL() {
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
   const offsetRef = React.useRef({ x: 0, y: 0 })
   const zoomRef = React.useRef(0.1) // Start with a zoomed-out value
