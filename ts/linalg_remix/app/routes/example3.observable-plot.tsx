@@ -2,7 +2,7 @@ import React from "react"
 import * as math from "mathjs"
 import * as Plot from "@observablehq/plot"
 
-export default function Exaample2ObservablePlot() {
+export default function Exaample3ObservablePlot() {
   const plotDivRef = React.useRef<HTMLDivElement>(null)
 
   const data = React.useMemo(() => {
