@@ -34,3 +34,6 @@ out/
 node_modules
 .cache
 **/ts/**/.env
+
+### Python ###
+*.pyc
